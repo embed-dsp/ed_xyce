@@ -8,7 +8,7 @@ SERPAR = serial
 # SERPAR = parallel
 
 PACKAGE_NAME = Xyce
-PACKAGE_VERSION = 7.6
+PACKAGE_VERSION = 7.8
 PACKAGE = $(PACKAGE_NAME)-$(PACKAGE_VERSION)
 
 TRILINOS_VERSION = release-12-12-1
@@ -25,9 +25,6 @@ ifeq ($(findstring MINGW32, $(shell uname -s)), MINGW32)
 endif
 ifeq ($(findstring MINGW64, $(shell uname -s)), MINGW64)
 	SYSTEM = mingw64
-endif
-ifeq ($(findstring CYGWIN, $(shell uname -s)), CYGWIN)
-	SYSTEM = cygwin
 endif
 
 # Determine machine.
@@ -90,7 +87,7 @@ all:
 	@echo ""
 	@echo "## Build"
 	@echo "make prepare"
-	@echo "make configure"
+	@echo "make configure [SERPAR=parallel]"
 	@echo "make compile [J=...]"
 	@echo ""
 	@echo "## Install"
